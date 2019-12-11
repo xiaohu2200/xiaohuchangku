@@ -18,7 +18,8 @@
     		color:white;
     		transform: scale(0);
     		transition:all 1s;
-            
+            text-align: center;
+    		line-height: 100px;
     	}
     	.stage:hover .mask{
     		transform: scale(1);
