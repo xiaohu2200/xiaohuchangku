@@ -26,7 +26,7 @@
 </head>
 <body>
     <div class="stage">
-        <div class="mask"><a href="https://xiaohu2200.github.io/xiaohuchangku/qqyinyue/">QQ音乐</a></div>
+       <a href="https://xiaohu2200.github.io/xiaohuchangku/qqyinyue/"> <div class="mask">QQ音乐</div></a>
     </div>
     
 </body>
