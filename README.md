@@ -1,3 +1,3 @@
-qq音乐<a href="https://xiaohu2200.github.io/xiaohuchangku/qqyinyue/">
+[qq音乐](https://xiaohu2200.github.io/xiaohuchangku/qqyinyue/)
 
 
