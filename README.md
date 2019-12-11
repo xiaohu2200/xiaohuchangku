@@ -18,6 +18,7 @@
     		color:white;
     		transform: scale(0);
     		transition:all 1s;
+            
     	}
     	.stage:hover .mask{
     		transform: scale(1);
