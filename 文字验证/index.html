@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0 auto;
+			}
+			
+			.box {
+				width: 400px;
+				height: 300px;
+				background-color: #F2F2F2;
+				margin: 50px auto;
+				position: relative;
+			}
+			
+			.text {
+				position: absolute;
+				cursor: pointer;
+				font-size: 18px;
+			}
+			
+			.button {
+				margin: 10px auto;
+				width: 100px;
+				height: 60px;
+				background-color: #E4393C;
+				color: #fff;
+				text-align: center;
+				line-height: 60px;
+				font-size: 20px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<!--<span class="text">哥</span>-->
+		</div>
+		<div class="button">
+			<span>生成验证</span>
+		</div>
+	</body>
+	<script src="jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			var library = [
+				['势', '如', '破', '竹'],
+				['高', '歌', '猛', '进'],
+				['奋', '发', '图', '强'],
+				['坚', '持', '不', '懈'],
+				['我', '太', '难', '了'],
+				['一', '二', '三', '四'],
+				['1', '2', '3', '4'],
+				['A', 'B', 'C', 'D']
+			];
+
+			function fn() {
+				$('.box').html('');
+				var index = parseInt(Math.random() * (library.length));
+				for(var i = 0; i < library[index].length; i++) {
+					var $text = $('<span class="text" data-x=" ">' + library[index][i] + '</span>');
+
+					var boor = true;
+					while(boor) {
+						var leftnum = parseInt(Math.random() * ($('.box').width() - 18));
+						var topnum = parseInt(Math.random() * ($('.box').height() - 24));
+						if(i == 0) {
+							break;
+						}
+						if(i != 0) {
+							for(var j = 0; j < i; j++) {
+								if(Math.abs(parseFloat($($('.text')[j]).css('left')) - leftnum) <= 18 || Math.abs(parseFloat($($('.text')[j]).css('top')) - topnum) <= 24) {
+									break;
+								}
+								if(j == i - 1) {
+									boor = false;
+								}
+							}
+						}
+					}
+
+					$('.box').append($text);
+
+					$text.css({
+						left: leftnum + 'px',
+						top: topnum + 'px',
+						color: 'rgba(' + parseInt(Math.random() * 256) + ',' + parseInt(Math.random() * 256) + ',' + parseInt(Math.random() * 256) + ',' + parseInt(Math.random() * 2 + 8) * 0.1 + ')'
+					})
+				}
+
+				var number = 0;
+				$('.text').on('click', function() {
+					$(this).attr('data-x', number);
+					$(this).unbind("click");
+					//					console.log(number)
+					number++;
+					//					if (number==4) {
+					//						console.log(library[index].length)
+					for(var i = 0; i < library[index].length; i++) {
+						//							console.log($(this).text())
+						if($(this).text() == library[index][i]) {
+							//								console.log($(this).attr("data-x"))
+							//								console.log(i)
+
+							if($(this).attr("data-x") != i) {
+								alert('验证失败');
+								return fn();
+							}
+						}
+					}
+					//					}
+					if(number == 4) {
+						alert("验证通过")
+						$('.box').html('');
+						return;
+					}
+				})
+			}
+
+			//生成验证事件
+			$('.button').on('click', fn)
+
+			//点击文字事件
+		})
+	</script>
+
+</html>
