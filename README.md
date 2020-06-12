@@ -30,7 +30,9 @@
     <div class="stage">
        <a href="https://xiaohu2200.github.io/xiaohuchangku/qqyinyue/"> <div class="mask">QQ音乐</div></a>
     </div>
-    
+     <div class="stage">
+       <a href="https://xiaohu2200.github.io/xiaohuchangku/画板/"> <div class="mask">画板</div></a>
+    </div>
 </body>
 </html>
 
