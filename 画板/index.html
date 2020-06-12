@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .color-block {
+      width: 20px;
+      height: 20px;
+      background-color: #000;
+    }
+  </style>
+</head>
+
+<body>
+	<canvas id="canvas" width="600" height="600" style="border: 1px solid red;"></canvas>
+  <div>
+    <div>红<input id="red" type="range" min="0" max="255" value="0" /><span id="r12">0</span></div>
+    <div>绿<input id="green" type="range" min="0" max="255" value="0" /><span id="g12">0</span></div>
+    <div>蓝<input id="blue" type="range" min="0" max="255" value="0" /><span id="b56">0</span></div>
+  </div>
+  <div id="color-block" class="color-block"></div>
+	<script src="canvas.js" type="text/javascript" charset="utf-8"></script>
+	<script src="color.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    //创建实例
+    var colorBlock = new ColorBlock({
+      green: {
+        value: 0,
+        key: 'g12'
+      },
+
+      red: {
+        //初始化红色
+        value: 0,
+
+        //显示的色值
+        key: 'r12'
+      },
+
+      blue: {
+        value: 0,
+        key: 'b56'
+      }
+    }, 'color-block');
+		
+    banner.draw('#canvas','rgb('+colorBlock.red+','+colorBlock.green+','+colorBlock.blue+')',10);
+    colorBlock.init();
+    
+  </script>
+</body>
+
+</html>
